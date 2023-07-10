@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일 지정하기</title>
+    <style>
+    .rule { color:rgba(255,128,0,0.95); }    
+    .rule { color:deeppink; }
+    </style>
+</head>
+<body>
+    <h2>스타일 기본 문법</h2>
+    <p class="rule">문법 : 선택자 { 속성1:값1; 속성2:값2; }</p>
+    <br>
+    <p>설명:</p>
+    <p class="commont">선택자(Selector) : 서식을 지정하고 싶은 요소</p>
+    <p class="commont">속성(Properties) : 부여하고 싶은 스타일의 정해진 단어의 특성을 지정</p>
+    <p class="commont">값(Value) : 해당 속성으로 지정가능한 키워드</p>
+    <hr>
+    <h2>스타일 지정 방식</h2>
+    <h3>인라인 스타일 방식</h3>
+    <p class="comment">해당 요소에 style 속성(attribute)로 직접 지정하므로 스타일 지정 즉시 
+        해당 스타일이 그 요소에만 지정되므로, 재사용성이 떨어지고, 변경하기가 힘듦. 
+        그러므로, 필요외로 가급적 사용하지 않도록 함.
+    </p>
+    <code>
+        &lt;span style="color:red;"&gt;첫 단어&lt;/span&gt;
+        &lt;span&gt;둘 단어&lt;/span&gt;
+        &lt;span style="color:blue"&gt;셋 단어&lt;/span&gt;
+    </code>
+    <hr>
+    <h3>내부 스타일 방식</h3>
+    <p class="comment">해당 문서의 head태그 안 쪽에 style 태그로 지정하여 현재 문서에만 적용할
+        경우 활용, 재사용성은 현재 문서에만 적용되므로 중간 정도, 변경하기가 쉬움.
+    </p>
+    <code>
+        &lt;style&gt; .comment { color:red; } &lt;style&gt;
+    </code>
+    <hr>
+    <h3>외부 스타일 방식</h3>
+    <p class="comment">별도의 css 파일을 작성하여 해당 html문서에 연결하여 사용하는 방식으로 
+        재사용성이 뛰어 나고, 필요한 곳에 link 태그를 활용하여 연결하고, 필요가 없는 경우 
+        해당 link 태그를 삭제하면 되고, 반드시 charset을 UTF-8로 처리하여야 한글이나 특수문자가
+        손상되지 않는다.
+    </p>
+    <code>
+        &lt;link href="style1.css" rel="stylesheet" /&gt;
+        <br>
+        -------------------------------------- style1.css ---------------------------------<br>
+        @charset "UTF-8";
+        <br>
+        선택자 { 속성:값; }
+    </code>
+    <hr>
+    <h3>크기 단위</h3>
+    <p class="comment">스타일에서 콘텐츠나 요소의 크기를 지정할 때는 px, pt, %, em(rem), vh, 
+        vw</p>
+    <hr>
+    <h3>색상 단위</h3>
+    <p class="comment">웹 컬러를 나타내는 방식으로 컬러명, 16진코드 6자리, 16진코드 3자리,
+        hsl(색각도,채도,명도), hsla(색각도,채도,명도,불투명도), rgb(빨강색량,초록색량,파랑색량), 
+        rgba(빨강색량,초록색량,파랑색량, 불투명도) 등 을 활용할 수 있음
+    </p>
+    <hr>
+    <h3>각도 단위</h3>
+    <p class="comment">해당 요소를 회전하려고 할 경우 활용하며, deg(각도), turn(바퀴) 등으로
+        명시하도록함</p>
+    <hr>
+    <h3>시간 단위</h3>
+    <p class="comment">애니메이션이나 지연시간 등에 지정하며, 단위로서는 s(초), ms(밀리초)</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

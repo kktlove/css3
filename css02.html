@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자(Selecter)</title>
+    <style>
+    /* 기본 선택자 */
+    * { margin: 0; padding: 0; }
+    body { margin: 0 auto; }
+    a { text-decoration: none; color:#000; }
+    .comment { font-weight:800; } 
+    #base { color:deepskyblue; }
+    
+    /* 계층 선택자 */
+    .ex1 li { list-style: none; }
+    .ex1 > nav > .lst1 > li  { padding-left: 24px; } 
+    .ex1 .item1 ~ li a { color:red; }
+    .ex1 .item1 + li a { border:1px solid red; }
+    li:first-child a { color:blue; }
+    li:first-of-type a { background-color:#999; }
+    li:last-child { border-bottom:2px double #000; }
+    li:last-of-type { border-top:3px dotted #f70; }
+    li:nth-child(2) { border-left:3px solid navy; }
+    li:nth-of-type(2) { border-right:4px dashed gold; }
+    li:nth-child(2n+1) { margin-left: 50px; }
+    li:nth-child(2n) { text-indent:-20px; }
+    li:only-child { font-size:24px; }
+    li:only-of-type { opacity:0.75; background-color: brown; }
+    li:empty::after { content:"내용없음"; }
+
+    /* 속성 선택자 */
+    img { display:inline-block; border-width:5px; width: 200px; height: 280px; margin: 5px; }
+    img[src] { border-style:double; }
+    img[src^="a"] { width:100px; }
+    img[src="mbc.png"] { width:150px; }
+    img[src$=".jpg"] { border-color:gold; }
+    img[src$=".png"] { border-color:deeppink; }
+    img[src$=".gif"] { border-color:deepskyblue; }
+    img[src*="bc"] { height:150px; }
+
+    /* 링크 선택자 */
+    a:link { color:gold; }
+    a:visited { color:deeppink; }
+    a:hover { color:deepskyblue; }
+    a:active { color:greenyellow; }
+
+    /* 전후 선택자 */
+    a:before { content:"앞 " }
+    a:after { content:" 뒤"; }
+
+    /* 텍스트/문장 선택자 */
+    .comment::first-letter { font-size:60px; }
+    .comment::first-line { text-decoration: underline; }
+
+    #app1, #app2, #app3 { width:500px; height:300px; text-align: center; 
+    font-size:40px; line-height: 300px; border:3px solid #333; height:0px;
+    overflow:hidden; box-sizing:border-box; transition:0.6s; }
+
+    #app1:target, #app2:target, #app3:target { height: 300px; }
+
+    .tab { width:800px; line-height: 300px; text-align: center;
+    font-size: 38px; overflow:hidden; transition:0.7s; }
+    .ra { display:none; }
+    .ra:not(:checked) + .tab { height:0px; }
+    .ra:checked + .tab { height:300px; }
+
+    .area::selection { background-color: deeppink; }
+    </style>
+</head>
+<body>
+    <h1>선택자</h1>
+    <p class="comment">스타일을 부여할 대상을 지정하는 키워드</p>
+    <hr>
+    <h2 id="base">기본 선택자</h2>
+    <p class="comment">태그, 클래스, 아이디, 전체 선택자</p>
+    <code>
+        * { }<br><!-- 모든 태그를 선택 -->
+        a { }<br><!-- 해당 태그를 선택 -->
+        .클래스명 { }<br><!-- 태그에 해당 클래스속성이 있는 요소만 선택 -->
+        #아이디명 { }<br><!-- 태그에 해당 아이디속성이 있는 요소만 선택 -->
+    </code>
+    <p>클래스(class) : 스타일이나 스크립트를 공통으로 적용시키기위해 해당 태그에 지정</p>
+    <p>아이디(id) : 하나의 html문서에서 각 각의 요소를 중복되지 않게 아이디를 부여하여 각
+        요소를 구분하여 스타일이나 스크립트를 각 각 적용하기 위해 태그에 지정
+    </p>
+    <hr>
+    <h2>계층 선택자</h2>
+    <p class="comment">조상후손, 부모자식, 형제, 순서 선택자</p>
+    <code>
+        조상 후손 { }<br><!-- 조상 요소와 후손 요소 사이를 한 칸 띄움 -->
+        부모 &gt; 자식 { }<br> <!-- 부모 자식 요소 사이에 &gt; 가 붙음 -->
+        형 ~ 제 { }<br> <!-- 형과 아우 요소 사이에 ~ 가 붙음 -->
+        형 + 바로밑의동생 { } <!-- 형과 바로밑의동생 요소 사이에 + 가 붙음 -->
+        요소명:first-child { } <!-- 해당 요소 중에서 첫 번째 자식 선택 -->
+        요소명:first-of-type { } <!-- 해당 요소 중에서 첫 번째 요소 선택 -->
+        요소명:last-child { } <!-- 해당 요소 중에서 마지막 번째 자식 선택 -->
+        요소명:last-of-type { } <!-- 해당 요소 중에서 마지막 번째 요소 선택 -->
+        요소명:nth-child(숫자) { } <!-- 해당 요소 중에서 숫자 번째 자식 선택 -->
+        요소명:nth-of-type(숫자) { } <!-- 해당 요소 중에서 숫자 번째 요소 선택 -->
+        요소명:only-child { } <!-- 해당 요소가 하나인 자식 선택 -->
+        요소명:only-of-type { } <!-- 해당 요소가 하나인 요소 선택 -->
+        요소명:empty { } <!-- 해당 요소가 비어 있는 경우 선택 -->
+    </code>
+    <div class="ex1">
+        <nav class="gnb">
+            <ul class="lst1">
+                <li class="item1"><a href="">항목1</a></li>
+                <li class="item2"><a href="">항목2</a></li>
+                <li class="item3"><a href="">항목3</a></li>
+            </ul>
+            <ol class="lst2">
+                <li class="item4"><a href="">항목4</a></li>
+                <li class="item5"><a href="">항목5</a></li>
+                <li class="item6"><a href="">항목6</a></li>
+                <li class="item7"><a href="">항목7</a></li>
+            </ol>
+            <ol class="lst2">
+                <li class="item8"><a href="">항목8</a></li>
+            </ol>
+            <ul class="lst3"><li></li></ul>
+        </nav>
+    </div>
+    <!-- div.ex1>nav.gnb>ul.lst1>li.item$*9>a{항목$} -->
+    <ul class="lst1">
+        <li class="item1"><a href="">항목1</a></li>
+        <li class="item2"><a href="">항목2</a></li>
+        <li class="item3"><a href="">항목3</a></li>
+    </ul>
+    <code>
+        .ex1 li { }<br> <!-- ex1 클래스의 후손 중에서 li 요소를 선택 -->
+        .ex1 > nav > .lst1 > li { }<br> <!-- ex1 클래스 부터 그 안의 모든 노드를 모두 기재 -->
+        .ex1 .item1 ~ li { }<br> <!-- item1 클래스의 동생들을 선택 -->
+        .ex1 .item1 + li { }<br> <!-- item1 클래스의 바로 다음의 li 하나만 선택 -->
+        li:first-child { }<br> <!-- 첫 번째 자식 선택 -->
+        li:first-of-type {  }<br> <!-- 첫 번째 요소 선택 --> 
+        li:last-child {  }<br> <!-- 마지막 자식 선택 -->
+        li:last-of-type { }<br> <!-- 마지막 요소 선택 -->
+        li:nth-child(2) { }<br> <!-- 두 번째 자식 선택 -->
+        li:nth-of-type(2) { }<br> <!-- 두 번째 요소 선택 -->
+        li:nth-child(2n+1) { }<br> <!-- 홀수 번째 자식 선택 -->
+        li:nth-child(2n) { }<br> <!-- 짝수 번째 자식 선택 -->
+        li:only-child { }<br> <!-- 해당 요소가 하나만 있는 자식 선택-->
+        li:only-of-type {  }<br> <!-- 해당 요소가 하나만 있는 요소 선택-->
+        li:empty {  }<br> <!-- 자식이 없거나 내용이 비어 있으면 선택 -->
+    </code>
+    <hr>
+    <h2>속성 선택자</h2>
+    <p class="comment">태그의 속성에 따라 다르게 선택할 경우 사용</p>
+    <p>속성 존재 유무, 속성 일치, 속성 접두사, 속성 접미사, 포함하는 문자열</p>
+    <code>
+        img[src] { }<br> <!-- 이미지 중에서 src 속성이 존재하는 요소 선택 -->
+        img[src="mbc.png"] { }<br> <!-- 이미지 중에서 src 속성의 값이 일치하는 요소 선택 -->
+        img[src|="문자"] { }<br> <!-- 이미지 중에서 src 속성의 값이 특정 문자로 시작하는 요소 선택 -->
+        img[src^="문자"] { }<br>
+        img[src$="문자"] { }<br> <!-- 이미지 중에서 src 속성의 값이 특정 문자로 끝나는 요소 선택 -->
+        img[src*="문자"] { }<br> <!-- 이미지 중에서 src 속성의 값이 특정 문자가 포함되는 요소 선택 -->
+        img[src~="문자"] { }<br>
+    </code>
+    <div class="pic_fr">
+        <img alt="src없음">
+        <img src="" alt="빈이미지">
+        <img src="abcd.jpg" alt="jpg">
+        <img src="mbc.png" alt="png">
+        <img src="kbs.gif" alt="gif">
+        <img src="product.webp" alt="webp">
+    </div>
+    <hr>
+    <h2>링크 선택자</h2>
+    <p class="comment">하이퍼링크 요소인 a요소의 현재 동작상태에 따라 달리 적용됨</p>
+    <p>a 요소에 href 속성의 값이 있는 경우 : link </p>
+    <p>a 요소에 href로 지정된 url이 방문한 적이 있는 경우 : visited </p>
+    <p>요소에 마우스 포인터가 올라가는 경우 : hover</p>
+    <p>요소에 마우스를 누르고 있는 경우 : active</p>
+    <code>
+        a:link {  }
+        a:visited {  }
+        a:hover {  }
+        a:active {  }
+    </code>
+    <div class="anchor_ex">
+        <a>데이터1</a>
+        <a href="https://www.naver.com">링크2</a>
+        <a href="https://www.goodwebworld.com">링크3</a>
+    </div>
+    <hr>
+    <h2>기타 선택자</h2>
+    <p>전후 선택자 - ::before, ::after</p>
+    <p>첫줄 선택자 - ::first-line</p>
+    <p>첫 글자 선택자 - ::first-letter</p>
+    <p>타겟 선택자 - ::target</p>
+    <p>부정 선택자 - not(:가상선택자)</p>
+    <p>체크 선택자 - :checked</p>
+    <p>포커스 선택자 - :focus</p>
+    <p>선택영역 선택자 - ::selection</p>
+    <a href="#">메인</a>
+    <a href="#app1">열기1</a>
+    <a href="#app2">열기2</a>
+    <a href="#app3">열기3</a>
+    <div id="app1">여기는 앱1입니다.</div>
+    <div id="app2">여기는 앱2입니다.</div>
+    <div id="app3">여기는 앱3입니다.</div>
+    
+    <div class="tab_box">
+        <label for="ra1">선택1</label>
+        <label for="ra2">선택2</label>
+        <label for="ra3">선택3</label>
+        <input type="radio" name="ra" id="ra1" class="ra" checked>
+        <div class="tab" id="tab1">탭박스1</div>
+        <input type="radio" name="ra" id="ra2" class="ra">
+        <div class="tab" id="tab2">탭박스2</div>
+        <input type="radio" name="ra" id="ra3" class="ra">
+        <div class="tab" id="tab3">탭박스3</div>
+    </div>
+    <div class="sel">
+        <p class="area">나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+            나는 김기태를 사랑합니다. 나는 김기태를 사랑합니다. 
+        </p>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
