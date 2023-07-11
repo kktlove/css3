@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 속성(properties) - 배치 및 레이아웃 관련 속성</title>
+    <style>
+    #canvas { margin: 0; padding: 0; width: 100vw; overflow-x:hidden; }    
+    .posbox { clear:both; margin: 0; padding: 0; width: 100vw; 
+        height:100vh;  position:relative; }
+    .postit { text-align: center; padding-top:40px; }
+    .pos1 { background-color: gold; }
+    .pos2 { background-color:#fff; }
+    .pos3 { background-color:deeppink; }
+    .pos4 { background-color:#efefef; }
+
+    .lst { list-style: none; clear:both; width: 1290px; 
+    margin: 20px auto; }
+    .lst:after { content:""; display:block; width: 100%; clear:both; }
+    .lst li { width: 300px; height: 340px; background-color:#fff; 
+        margin-right: 30px; float:left; margin-top: 30px; 
+        box-sizing:border-box; border:1px solid #333; }
+    .lst li:nth-child(4n) { margin-right: 0; }
+    .imgbox { width: 200px; height:200px; background-color:navy; 
+    margin: 24px auto; }
+    .cate_tit { padding-left: 50px; }
+    .cate_comment { padding-left: 50px; }
+
+    .pos1 .lst li:nth-child(3) { clear:both; }
+
+    .pos2 .lst li { position:relative; }
+    .pos2 .lst li:nth-child(2) { left:50px; top:50px; }
+    .pos2 .lst li:nth-child(3) { left:-50px; top:-50px; }
+    .pos3 .lst { position:relative; }
+    .pos3 .lst li { position: absolute; }
+    .pos3 .lst li:nth-child(1) { z-index:100; left:-50px; top:-50px; }
+    .pos3 .lst li:nth-child(2) { z-index:99; left:50px; top:50px; }
+    .pos3 .lst li:nth-child(3) { z-index:98; left:150px; top:150px; }
+    .pos3 .lst li:nth-child(4) { z-index:97; left:250px; top:250px; }
+    .pos3 .lst li:nth-child(5) { z-index:96; left:350px; top:350px; }
+    .pos3 .lst li:nth-child(6) { z-index:95; left:450px; top:450px; }
+    .pos4 .lst li { position:fixed; z-index:999; }
+    .pos4 .lst li:first-child { right:50px; top:50px; }
+    .pos4 .lst li:nth-child(2) { left:50px; top:50px; }
+    .pos4 .lst li:nth-child(3) { left:50px; bottom:50px; }
+    .pos4 .lst li:nth-child(4) { right:50px; bottom:50px; }
+    .pos4 .lst li:nth-child(5), .pos4 .lst li:nth-child(6) { 
+        display:none; }
+    </style>
+</head>
+<body>
+    <div id="canvas">
+        <section class="posbox pos1">
+            <h2 class="postit">static</h2>
+            <ul class="lst">
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목1</h3>
+                    <p class="cate_comment">카테고리설명1</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목2</h3>
+                    <p class="cate_comment">카테고리설명2</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목3</h3>
+                    <p class="cate_comment">카테고리설명3</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목4</h3>
+                    <p class="cate_comment">카테고리설명4</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목5</h3>
+                    <p class="cate_comment">카테고리설명5</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목6</h3>
+                    <p class="cate_comment">카테고리설명6</p>
+                </li>
+            </ul>
+        </section>
+        <section class="posbox pos2">
+            <h2 class="postit">relative</h2>
+            <ul class="lst">
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목1</h3>
+                    <p class="cate_comment">카테고리설명1</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목2</h3>
+                    <p class="cate_comment">카테고리설명2</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목3</h3>
+                    <p class="cate_comment">카테고리설명3</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목4</h3>
+                    <p class="cate_comment">카테고리설명4</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목5</h3>
+                    <p class="cate_comment">카테고리설명5</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목6</h3>
+                    <p class="cate_comment">카테고리설명6</p>
+                </li>
+            </ul>
+        </section>
+        <section class="posbox pos3">
+            <h2 class="postit">absolte</h2>
+            <ul class="lst">
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목1</h3>
+                    <p class="cate_comment">카테고리설명1</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목2</h3>
+                    <p class="cate_comment">카테고리설명2</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목3</h3>
+                    <p class="cate_comment">카테고리설명3</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목4</h3>
+                    <p class="cate_comment">카테고리설명4</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목5</h3>
+                    <p class="cate_comment">카테고리설명5</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목6</h3>
+                    <p class="cate_comment">카테고리설명6</p>
+                </li>
+            </ul>
+        </section>
+        <section class="posbox pos4">
+            <h2 class="postit">fixed</h2>
+            <ul class="lst">
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목1</h3>
+                    <p class="cate_comment">카테고리설명1</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목2</h3>
+                    <p class="cate_comment">카테고리설명2</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목3</h3>
+                    <p class="cate_comment">카테고리설명3</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목4</h3>
+                    <p class="cate_comment">카테고리설명4</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목5</h3>
+                    <p class="cate_comment">카테고리설명5</p>
+                </li>
+                <li>
+                    <div class="imgbox"></div>
+                    <h3 class="cate_tit">카테고리제목6</h3>
+                    <p class="cate_comment">카테고리설명6</p>
+                </li>
+            </ul>
+        </section>
+        <section class="posbox pos5">
+            <h2>기타</h2>
+            <hr>
+            <div class="st_item">여기는 임시 박스</div>
+        </section>
+    </div>
+    <h1>배치 및 레이아웃 관련 속성</h1>
+    <p>position, left, right, top, bottom, z-index, float, clear 등</p>
+    <br><hr><br>
+    <h2>position(위치)</h2>
+    <p>현재 선택된 요소를 어떠한 방식으로 배치할지를 정하는 위치 결정 방식의 속성</p>
+    <p>사용가능한 속성 : static | relative | absolute | fixed | sticky</p>
+    <p>모든 요소는 위에서 부터 아래로, 왼쪽으로 오른쪽으로 배치가 된다.</p>
+    <p>static : 정적 배치이며, position의 기본값으로 별도의 position 지정을
+        하지 않더라도 모든 요소는 static으로 결정된다.<br>
+        위치 배정은 margin으로 하도록 하며, 가로 방향으로 여러 요소를 배치할 
+        경우는 float 속성을 활용하여 배치하도록 한다.
+    </p>
+    <p>relative : 상대 배치이며, 내부 요소나 형제요소와 상대적으로 배치할 경우
+        지정한다.<br>
+        위치 배정은 margin으로 하도록 하도록 하며, 가로 방향으로 여러 요소를 배치할 
+        경우는 float 속성을 활용하여 배치하도록 한다.<br>
+        absolute 인 내부 요소의 원점을 부모 요소로 하려고 할 경우 활용<br>
+    </p>
+    <p>absolute : 절대 배치이며, x(가로방향)축의 위치에 해당하는 left/right
+    속성과 y(세로방향)축의 위치에 해당하는 top/bottom 속성으로 배치하도록 하고,
+    가급적 margin을 피한다.<br>
+    요소들을 겹치기하여 배치할 경우 z-index(레이어=층수)의 속성을 지정하고,
+    z-index는 숫자가 클수록 앞면에 배치된다.
+    </p>
+    <p>fixed : 화면에 고정시키는 위치 결정 방법으로 left/right
+        속성과 y(세로방향)축의 위치에 해당하는 top/bottom 속성으로 배치하도록 하고,
+        가급적 margin을 피한다.<br>
+        요소들을 겹치기하여 배치할 경우 z-index(레이어=층수)의 속성을 지정하고,
+        z-index는 숫자가 클수록 앞면에 배치된다.</p>
+    <br><hr><br>
+
+    <h2>위치값 지정</h2>
+    <p>left : 왼쪽에서 부터의 위치</p>
+    <p>right : 오른쪽에서 부터의 위치</p>
+    <p>top : 위쪽에서 부터의 위치</p>
+    <p>bottom : 아래쪽에서 부터의 위치</p>
+    <p>지정가능한 키워드 : auto | length</p>
+    <p>length는 %, px, pt, pc, cm, mm, in, vw, vmin, vmax 등의 단위로
+        지정이 가능</p>
+    <p>auto는 현재 left 속성 값이 지정이 되어 있는 경우 right 속성 값을
+        변경하려고 할 경우 left를 auto로 하고, right 값을 지정하면 된다.
+    </p>
+    <br><hr><br>
+
+    <h2>레이어 설정</h2>
+    <p>z-index : 레이어(층수)의 위치로서 여러 요소를 겹칠 경우 어떤
+        요소를 앞으로 보내고, 뒤로 보낼 것인지 양의 정수로 지정하여
+        결정하고, 숫자 클수록 위층에 배치됨. 자동 설정인 경우 auto임
+    </p>
+    <p>만약, z-index 속성 값을 지정하지 않으면, 먼저 작성된 요소(태그)가
+        뒷면에 배치되고, 나중에 작성된 요소(태그)가 앞면에 배치됨.
+    </p>
+    <br><hr><br>
+
+    <h2>float - 흐름 속성</h2>
+    <p>지정 가능한 값 : none | left | right</p>
+    <br><hr><br>
+
+    <h2>clear - 흐름 해제 속성</h2>
+    <p>지정 가능한 값 : none | left | right | both</p>
+    <br><hr><br>
+
+</body>
+</html>
