@@ -33,6 +33,22 @@
     }
 
     #page4 { background:#ff0 url("./bg1.jpg") center center/100% auto no-repeat fixed; }
+    
+    .page { overflow:hidden; }
+    .page .vs { width:100%; height:auto; max-height:100vh; }
+    .vs img { display:block; width: 100%; height:auto;}
+
+    #page5 .vs img { filter:blur(10px); }
+    #page6 .vs img { filter:brightness(50%); }
+    #page7 .vs img { 
+        /* filter:contrast(50%);  */
+        /* filter:grayscale(90%); */
+        /* filter:invert(90%); */
+        /* filter:hue-rotate(90deg); */
+        /* filter:saturate(20%); */
+        filter:sepia(60%);
+    }
+
     </style>
 </head>
 <body>
@@ -49,6 +65,22 @@
         </section>
         <section class="page" id="page4">
             <h2 class="page_tit">페이지제목4</h2>
+        </section>
+        <section class="page" id="page5">
+            <h2 class="page_tit">페이지제목5</h2>
+            <figure class="vs"><img src="./bg1.jpg" alt="배너1"></figure>
+        </section>
+        <section class="page" id="page6">
+            <h2 class="page_tit">페이지제목6</h2>
+            <figure class="vs"><img src="./bg1.jpg" alt="배너2"></figure>
+        </section>
+        <section class="page" id="page7">
+            <h2 class="page_tit">페이지제목7</h2>
+            <figure class="vs"><img src="./bg1.jpg" alt="배너3"></figure>
+        </section>
+        <section class="page" id="page8">
+            <h2 class="page_tit">페이지제목8</h2>
+            <figure class="vs"><img src="./bg1.jpg" alt="배너4"></figure>
         </section>
     </div>
     <div id="con">
