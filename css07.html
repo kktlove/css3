@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 속성(properties) - 기타 속성</title>
+    <style>
+    #canvas, #con { width:1280px; margin:60px auto; }    
+    .mouse { width:1280px; clear:both; min-height:100vh; }
+    .mouse:after { content:""; clear:both; display:block; width: 100%; }
+    .mouse ul { list-style: none; clear:both; }
+    .mouse li { width:100px; height: 100px; margin: 15px; 
+        border:1px solid #333; text-align: center;
+        padding-top: 30px; box-sizing:border-box;  float:left; }
+    .mouse li.alias { cursor: alias; }
+    .mouse li.all-scroll { cursor:all-scroll; }
+    .mouse li.auto {cursor: auto;}
+    .mouse li.cell {cursor: cell;}
+    .mouse li.col-resize {cursor: col-resize;}
+    .mouse li.context-menu {cursor: context-menu;}
+    .mouse li.copy {cursor: copy;}
+    .mouse li.crosshair {cursor: crosshair;}
+    .mouse li.default {cursor: default;}
+    .mouse li.e-resize {cursor: e-resize;}
+    .mouse li.ew-resize {cursor: ew-resize;}
+    .mouse li.grab {cursor: grab;}
+    .mouse li.grabbing {cursor: grabbing;}
+    .mouse li.help {cursor: help;}
+    .mouse li.move {cursor: move;}
+    .mouse li.n-resize {cursor: n-resize;}
+    .mouse li.ne-resize {cursor: ne-resize;}
+    .mouse li.nesw-resize {cursor: nesw-resize;}
+    .mouse li.ns-resize {cursor: ns-resize;}
+    .mouse li.nw-resize {cursor: nw-resize;}
+    .mouse li.nwse-resize {cursor: nwse-resize;}
+    .mouse li.no-drop {cursor: no-drop;}
+    .mouse li.none {cursor: none;}
+    .mouse li.not-allowed {cursor: not-allowed;}
+    .mouse li.pointer {cursor: pointer;}
+    .mouse li.progress {cursor: progress;}
+    .mouse li.row-resize {cursor: row-resize;}
+    .mouse li.s-resize {cursor: s-resize;}
+    .mouse li.se-resize {cursor: se-resize;}
+    .mouse li.sw-resize {cursor: sw-resize;}
+    .mouse li.text {cursor: text;}
+    .mouse li.url {cursor: url(game.png) 20 30, auto;}
+    .mouse li.url2 {cursor: url(qt.cur) 20 30, auto;}
+    .mouse li.w-resize {cursor: w-resize;}
+    .mouse li.wait {cursor: wait;}
+    .mouse li.zoom-in {cursor: zoom-in;}
+    .mouse li.zoom-out {cursor: zoom-out;}
+    </style>
+    <style>
+    .list li { }   
+    .list li.disc { list-style: disc; } 
+    .list li.circle {list-style-type: circle;}
+    .list li.square {list-style-type: square;}
+    .list li.armenian {list-style-type: armenian;}
+    .list li.cjk-ideographic {list-style-type: cjk-ideographic;}
+    .list li.decimal {list-style-type: decimal;}
+    .list li.decimal-leading-zero {list-style-type: decimal-leading-zero;}
+    .list li.georgian {list-style-type: georgian;}
+    .list li.hebrew {list-style-type: hebrew;}
+    .list li.hiragana {list-style-type: hiragana;}
+    .list li.hiragana-iroha {list-style-type: hiragana-iroha;}
+    .list li.katakana {list-style-type: katakana;}
+    .list li.katakana-iroha {list-style-type: katakana-iroha;}
+    .list li.lower-alpha {list-style-type: lower-alpha;}
+    .list li.lower-greek {list-style-type: lower-greek;}
+    .list li.lower-latin {list-style-type: lower-latin;}
+    .list li.lower-roman {list-style-type: lower-roman;}
+    .list li.upper-alpha {list-style-type: upper-alpha;}
+    .list li.upper-greek {list-style-type: upper-greek;}
+    .list li.upper-latin {list-style-type: upper-latin;}
+    .list li.upper-roman {list-style-type: upper-roman;}
+    .list li.none {list-style-type: none;}
+    .list li.img { list-style-image:url(game.png); }
+
+    .ts { clear:both; width: 100%; }
+    .tit-box { width: 900px; height: 100px; line-height: 100px; 
+    text-align: center; }
+    .tit-box h2 { font-size:60px; color:deepskyblue; }
+    .ts-tit1 { text-shadow: 3px 3px #0c4569, -3px -3px #b4dffa;}
+    .ts-tit2 { text-shadow: -3px -3px #0c4569, 3px 3px #b4dffa;}
+    .tit-box:nth-child(3) { background-color:#fff; }
+    .tit-box h2.ts-tit3 { color:#000; 
+        text-shadow: 2px 2px 0px #eee, 4px 4px 0px #000; }
+
+    .tit-box:nth-child(4) { background-color: #000; }
+    .tit-box h2.ts-tit4 { color:#fff; 
+    text-shadow: 0 0 1px #fff, 0 0 20px #fff, 0 0 30px #fff,
+     0 0 40px #ff00de, 0 0 60px #ff00de, 0 0 80px #ff00de,
+      0 0 100px #ff00de, 0 0 110px #ff00de; } 
+
+    .tit-box h2.ts-tit5 { text-shadow: -1px 0 black, 0 1px black, 
+    1px 0 black, 0 -1px black; color:#fff; }  
+
+    .tit-box:nth-child(6) { background-color: #565656; }
+    .tit-box h2.ts-tit6 {   color: #333;
+          text-shadow: 0 1px 0 #777, 0 -1px 0 #000; }
+    
+    .tit-box:nth-child(7) { background-color:navy; }
+    .tit-box h2.ts-tit7 { font-family: 'Staatliches', cursive; 
+    color: #F1C164;  text-shadow: 5px 5px #2D63A7; } 
+
+    .tit-box:nth-child(8) { background-color:navy; }
+    .tit-box h2.ts-tit8 { padding-top: 20px; font-family: 'Staatliches', cursive; 
+    color: #F1C164;  text-shadow: 5px 5px #2D63A7; 
+    text-decoration: overline; text-decoration-style: wavy; } 
+
+    .tit-box h2.ts-tit9 { text-shadow:1px 1px 0px #0c4569, 
+        2px 2px 0px #0c4569, 3px 3px 0px #0a3b5a, 
+        4px 4px 0px #0a3b5a, 5px 5px 0px #072a40,
+        6px 6px 0px #072a40, 7px 7px 0px #03141e, 
+        8px 8px 0px #03141e, 9px 9px 0px #010507,
+        10px 10px 0px #010507;
+    }
+
+    .tit-box h2.ts-tit10 { text-shadow: none; transition:0.6s; }
+    .tit-box h2.ts-tit10:hover { text-shadow:1px 1px 0px #0c4569, 
+        2px 2px 0px #0c4569, 3px 3px 0px #0a3b5a, 
+        4px 4px 0px #0a3b5a, 5px 5px 0px #072a40,
+        6px 6px 0px #072a40, 7px 7px 0px #03141e, 
+        8px 8px 0px #03141e, 9px 9px 0px #010507,
+        10px 10px 0px #010507; }
+
+    .bs { clear:both; }
+    .bs-box { width:auto; clear:both; padding: 40px; }
+    .bs-box span { display:block; width: 100px; height: 100px; 
+    line-height: 100px; text-align: center; }
+    .bs1 { background-color:deepskyblue;
+         box-shadow:10px 10px 0px #0c4569;  }
+    .bs2 { background-color:deepskyblue;
+         box-shadow:10px 10px 10px #0c4569;  }
+    .bs3 { background-color:deepskyblue;
+         box-shadow:1px 1px 0px #0c4569, 
+        2px 2px 0px #0c4569, 3px 3px 0px #0a3b5a, 
+        4px 4px 0px #0a3b5a, 5px 5px 0px #072a40,
+        6px 6px 0px #072a40, 7px 7px 0px #03141e, 
+        8px 8px 0px #03141e, 9px 9px 0px #010507,
+        10px 10px 0px #010507; }
+    .bs4 { border-radius:50%; background-color:deepskyblue;
+         box-shadow:10px 10px 0px #0c4569;  }
+    .bs5 { border-radius:50px; background-color:deepskyblue;
+         box-shadow:10px 10px 10px #0c4569;  }
+    .bs6 { border-radius:50px; background-color:deepskyblue;
+         box-shadow:1px 1px 0px #0c4569, 
+        2px 2px 0px #0c4569, 3px 3px 0px #0a3b5a, 
+        4px 4px 0px #0a3b5a, 5px 5px 0px #072a40,
+        6px 6px 0px #072a40, 7px 7px 0px #03141e, 
+        8px 8px 0px #03141e, 9px 9px 0px #010507,
+        10px 10px 0px #010507; }
+
+    #bs-box7 {  height:400px; background: #e2e2e2;
+    background-image: linear-gradient(to bottom, #8a8a8a 25%,
+     #9E9E9E 5%, #ffffff); position:fixed; bottom:0; left:0;
+    width: 100vw; 	display: flex;    align-items: center;
+  justify-content: center;  height: 100vh;  margin: 0; padding: 0; 
+  /* display:none; */ }
+    .bs7 { --d: 200px; width: var(--d); height: var(--d);
+        background: #eaeaea; position: absolute;
+        border-radius: 50%; box-shadow: inset 30px -20px 60px 0 #5b5b5b;
+        text-align: center; line-height: 200px; }
+    .bs7::before { content: "";  width: 0;  height: 0;
+    background: white;  position: absolute;  top: 30%;
+    right: 30%;  border-radius: 50%;  box-shadow: 0 0 30px 10px white;
+    }
+    .bs7::after { content: ""; width: 240px;  height: 100px;
+    background: rgba(0, 0, 0, 0.7);     position: absolute;
+    bottom: -15%;    right: 20%;    border-radius: 50%;
+    box-shadow: -2px 0 2px 0 rgba(0, 0, 0, 0.7);
+    transform: rotateZ(10deg);     transform-origin: bottom right;
+    z-index: -1;
+    }
+    </style>
+</head>
+<body>
+    <div id="canvas">
+        <article class="mouse">
+            <ul>
+                <li class="alias">모양1<br>alias</li>
+                <li class="all-scroll">모양2<br>all-scroll</li>
+                <li class="auto">모양3<br>auto</li>
+                <li class="cell">모양4<br>cell</li>
+                <li class="col-resize">모양5<br>col-resize</li>
+                <li class="context-menu">모양6<br>context-menu</li>
+                <li class="copy">모양7<br>copy</li>
+                <li class="crosshair">모양8<br>crosshair</li>
+                <li class="default">모양9<br>default</li>
+                <li class="e-resize">모양10<br>e-resize</li>
+                <li class="ew-resize">모양11<br>ew-resize</li>
+                <li class="grab">모양12<br>grab</li>
+                <li class="grabbing">모양13<br>grabbing</li>
+                <li class="help">모양14<br>help</li>
+                <li class="move">모양15<br>move</li>
+                <li class="n-resize">모양16<br>n-resize</li>
+                <li class="no-drop">모양17<br>no-drop</li>
+                <li class="none">모양18<br>none</li>
+                <li class="not-allowed">모양19<br>not-allowed</li>
+                <li class="pointer">모양20<br>pointer</li>
+                <li class="progress">모양21<br>progress</li>
+                <li class="row-size">모양22<br>row-size</li>
+                <li class="s-resize">모양23<br>s-resize</li>
+                <li class="text">모양24<br>text</li>
+                <li class="url">모양25<br>url</li>
+                <li class="w-resize">모양26<br>w-resize</li>
+                <li class="wait">모양27<br>wait</li>
+                <li class="zoom-in">모양28<br>zoom-in</li>
+                <li class="zoom-out">모양29<br>zoom-out</li>
+                <li class="url2">모양30<br>url2</li>
+            </ul>
+        </article>
+        <br><hr><br>
+        <article class="list">
+            <ul>
+                <li class="disc">목록기호1<br>disc</li>
+                <li class="armenian">목록기호2<br>armenian</li>
+                <li class="circle">목록기호3<br>circle</li>
+                <li class="cjk-ideographic">목록기호4<br>
+                    cjk-ideographic</li>
+                <li class="decimal">목록기호5<br>decimal</li>
+                <li class="georgian">목록기호6<br>georgian</li>
+                <li class="hebrew">목록기호7<br>hebrew</li>
+                <li class="hiragana">목록기호8<br>hiragana</li>
+                <li class="katakana">목록기호9<br>katakana</li>
+                <li class="lower-alpha">목록기호10<br>lower-alpha</li>
+                <li class="lower-greek">목록기호11<br>lower-greek</li>
+                <li class="lower-latin">목록기호12<br>lower-latin</li>
+                <li class="lower-roman">목록기호13<br>lower-roman</li>
+                <li class="none">목록기호14<br>none</li>
+                <li class="square">목록기호15<br>square</li>
+                <li class="upper-alpha">목록기호16<br>upper-alpha</li>
+                <li class="upper-greek">목록기호17<br>upper-greek</li>
+                <li class="upper-latin">목록기호18<br>upper-latin</li>
+                <li class="upper-roman">목록기호19<br>upper-roman</li>
+                <li class="img">목록기호20<br>image</li>
+            </ul>
+        </article>
+        <div class="post">
+            <p>국가는 균형있는 국민경제의 성장 및 안정과 적정한 소득의 분배를 유지하고, 시장의 지배와 경제력의 남용을 방지하며, 경제주체간의 조화를 통한 경제의 민주화를 위하여 경제에 관한 규제와 조정을 할 수 있다. 국회나 그 위원회의 요구가 있을 때에는 국무총리·국무위원 또는 정부위원은 출석·답변하여야 하며, 국무총리 또는 국무위원이 출석요구를 받은 때에는 국무위원 또는 정부위원으로 하여금 출석·답변하게 할 수 있다.</p>
+            <p>제2항의 재판관중 3인은 국회에서 선출하는 자를, 3인은 대법원장이 지명하는 자를 임명한다. 대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 누구든지 병역의무의 이행으로 인하여 불이익한 처우를 받지 아니한다. 정당의 설립은 자유이며, 복수정당제는 보장된다.</p>
+            <p>모든 국민은 법 앞에 평등하다. 누구든지 성별·종교 또는 사회적 신분에 의하여 정치적·경제적·사회적·문화적 생활의 모든 영역에 있어서 차별을 받지 아니한다. 헌법재판소 재판관은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 대통령은 국가의 원수이며, 외국에 대하여 국가를 대표한다.</p>
+            <p>위원은 정당에 가입하거나 정치에 관여할 수 없다. 선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 국무위원은 국무총리의 제청으로 대통령이 임명한다. 국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 국회의원은 법률이 정하는 직을 겸할 수 없다.</p>
+            <p>대통령은 국회에 출석하여 발언하거나 서한으로 의견을 표시할 수 있다. 대통령은 국가의 안위에 관계되는 중대한 교전상태에 있어서 국가를 보위하기 위하여 긴급한 조치가 필요하고 국회의 집회가 불가능한 때에 한하여 법률의 효력을 가지는 명령을 발할 수 있다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.</p>
+        </div>
+        <br> <hr> <br>
+        <article class="ts">
+            <div class="tit-box">
+                <h2 class="ts-tit1">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit2">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit3">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit4">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit5">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit6">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit7">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit8">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit9">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit10">Lorem Ipsum</h2>
+            </div>
+        </article>
+        <br> <hr> <br> 
+        <article class="bs">
+            <div class="bs-box"><span class="bs1">BOX1</span></div>
+            <div class="bs-box"><span class="bs2">BOX2</span></div>
+            <div class="bs-box"><span class="bs3">BOX3</span></div>
+            <div class="bs-box"><span class="bs4">BOX4</span></div>
+            <div class="bs-box"><span class="bs5">BOX5</span></div>
+            <div class="bs-box"><span class="bs6">BOX6</span></div>
+            <div id="bs-box7"><span class="bs7" id="bs7">BOX7</span></div>
+            <div class="bs-box"><span class="bs8">BOX8</span></div>
+            <div class="bs-box"><span class="bs9">BOX9</span></div>
+            <div class="bs-box"><span class="bs10">BOX10</span></div>
+        </article>
+    </div>
+    <div id="con">
+    <h1>목록 속성</h1>
+    <p>list-style : type position image</p>
+    <p>메뉴나 목록의 기호를 표시하는 속성</p>
+    <br><hr><br>
+
+    <h2>목록 기호</h2>
+    <p>list-style-type : none | disc | circle | square<br>
+        decimal | armenian | georgian | hebrew | hiragana |
+        katakana | lower-alpha | lower-greek | lower-latin |
+        lower-roman | upper-alpha | upper-greek | upper-latin |
+        upper-roman | cjk-ideographic  
+    </p>
+    <p>li 요소에 표시되는 목록 기호로 부모 요소가 ol인 경우는 
+        숫자가 순서대로 앞에 표기되고, ul인 경우는 disc가 앞에 표기된다.
+    </p>
+    <br><hr><br>
+
+    <h2>목록 기호 위치</h2>
+    <p>list-style-position : inside | outside</p>
+    <br><hr><br>
+
+    <h2>목록 이미지</h2>
+    <p>list-style-image : none | url(파일경로및이름)</p>
+    <p>목록 기호에 들어갈 자리에 이미지가 표시되며, 파일경로나 이름은
+        ""(큰따옴표), ''(작은따옴표)로 묶을 수 있으며, 생략 가능하다. 
+        다만, 중간에 띄워쓰기나 한글 및 특수문자로 이루어져 있는 경우는
+        반드시 따옴표로 묶어야 한다.
+    </p>
+    <br><hr><br>
+
+    <h1>마우스 포인터</h1>
+    <p>cursor : none | alias | all-scroll | auto | cell | col-size | context-menu |
+        copy | crosshair | default | e-resize | n-resize | s-resize | w-resize |
+        | ew-resize | ne-resize | ns-resize | nwse-resize | se-resize 
+        | sw-resize | grab | grabbing | help | move | no-drop | not-allowed 
+        | pointer | progress | row-resize | zoom-in | zoom-out | text 
+        | url(파일경로및이름)
+    </p>
+    <p>해당 요소의 영역에 마우스 포인터가 위치되면, 그 마우스 포인터 모양을
+        지정할 수 속성
+    </p>
+    <br><hr><br>
+
+    <h1>그림자 속성</h1>
+    <p>shadow : text-shadow, box-shadow</p>
+    <p>텍스트나 박스의 외부 그림자 또는 내부 그림자를 말하며, 크기 속성에 
+        포함되지 않는다.</p>
+    <br><hr><br>
+
+    <h2>텍스트 그림자</h2>
+    <p>text-shadow : x-length y-length blur-length color</p>
+    <p>x를 양의 값으로 입력하면, 그림자의 방향은 오른쪽에 발생되며,
+        음의 값으로 입력하면, 왼쪽에 그림자가 발생됨.<br>
+        y를 양의 값으로 입력하면, 그림자의 방향은 아래쪽에 발생되며,
+        음의 값으로 입력하면, 위쪽에 발생된다.<br>
+        x y blur color 양의 여러 단계에 걸쳐 지정하면, 입체모양이 그림자가
+        표시된다.
+    </p>
+    <br><hr><br>
+
+    <h2>박스 그림자</h2>
+    <p>box-shadow : x-length y-length blur-length color</p>
+    <p>box-shadow : x-length y-length blur-length spread-length color</p>
+    <p>x를 양의 값으로 입력하면, 그림자의 방향은 오른쪽에 발생되며,
+        음의 값으로 입력하면, 왼쪽에 그림자가 발생됨.<br>
+        y를 양의 값으로 입력하면, 그림자의 방향은 아래쪽에 발생되며,
+        음의 값으로 입력하면, 위쪽에 발생된다.<br>
+        x y blur color 양의 여러 단계에 걸쳐 지정하면, 입체모양이 그림자가
+        표시된다.
+    </p>
+    <p>box-shadow나 text-shadow의 그림자의 양이나 blur, spread는
+         px또는 pt 단위로 기재한다.
+    </p>
+    </div>
+</body>
+</html>
